@@ -8,15 +8,40 @@ def aws():
 	while True:
 		print("""
 		press 1 : to config aws
+		""",end = '')
+		time.sleep(0.2)
+		print("""
 		press 2 : to create key pair
-		press 3 : to create sg 
+		""",end = '')
+		time.sleep(0.2)
+		print("""
+		press 3 : to create sg
+		""",end = '') 
+		time.sleep(0.2)
+		print("""
 		press 4 : create ec2 instances
+		""",end = '')
+		time.sleep(0.2)
+		print("""
 		press 5 : create ebs
+		""",end = '')
+		time.sleep(0.2)
+		print("""
 		press 6 : Display Key-Pair
+		""",end = '')
+		time.sleep(0.2)
+		print("""
 		press 7 : Display Security-group
+		""",end = '')
+		time.sleep(0.2)
+		print("""
 		press 8 : Exit the program
+		""",end = '')
+		time.sleep(0.2)
+		print("""
 		Press 9 : Back to Main Menu
-	""")
+		""",end = '')
+		time.sleep(0.2)
 		aws=input("Select your choice :- ")
 		if int(aws)==1:
 			os.system("aws configure")
@@ -83,6 +108,7 @@ def aws():
 			sec_group=os.system("aws ec2 describe-security-groups")
 			print(sec_group)
 		elif int(aws)== 8:
+			os.system("figlet Thanks for using AWS.")
 			exit()
 		elif int(aws)== 9:
 			break
@@ -94,13 +120,32 @@ def Hadoop_Cluster():
 	while True:
 		print("""
 			Press 1 : Is Hadoop is install or not
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 2 : Install Hadoop
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 3 : Create DataNode
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 4 : Create NameNode
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 5 : Hadoop Client
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			press 6 : Exit the program
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 7 : Back to Main Menu
-			""")
+			""",end = '')
+		time.sleep(0.2)
 		hadoop=input("Select your choice:-")
 		if int(hadoop)==1:
 			os.system("rpm -q hadoop")
@@ -179,15 +224,37 @@ def Hadoop_Cluster():
 		elif int(hadoop)==5:
 			while True:
 				print("""
-			Press 1 : Create Hadoop Client
-			Press 2 : Show file
-			Press 3 : Create file
-			Press 4 : Send file
-			Press 5 : Read file
-			Press 6 : Remove file
-			press 7 : Exit the program
-			Press 8 : Back to Main Menu
-			""")
+				Press 1 : Create Hadoop Client
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				Press 2 : Show file
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				Press 3 : Create file
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				Press 4 : Send file
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				Press 5 : Read file
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				Press 6 : Remove file
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				press 7 : Exit the program
+				""",end = '')
+				time.sleep(0.2)
+				print("""
+				Press 8 : Back to Main Menu
+				""",end = '')
+				time.sleep(0.2)
 				Client_ch=input("Select your choice :- ")
 				if int(Client_ch)==1:
 					os.system("rm -f /etc/hadoop/core-site.xml")
@@ -245,12 +312,18 @@ def Hadoop_Cluster():
 					else:
 						os.system("tput setaf 9")
 						print("Input wrong keyword.")
-						os.system("tput sgr0")
-
-				
-		elif int(hadoop)==7:
+						os.system("tput sgr0")				
+				elif int(Client_ch)==7:
+					os.system("figlet Thanks for using Hadoop Client.")
+					exit()
+				elif int(Client_ch)==8:
+					break
+				else:
+					print("You have entered wrong keyword")
+		elif int(hadoop)==6:
+			os.system("figlet Thanks for using Hadoop.")
 			exit()
-		elif int(hadoop)==8:
+		elif int(hadoop)==7:
 			break
 		else:
 			print("You have entered wrong keyword")
@@ -259,10 +332,20 @@ def Jenkins():
 	while True:
 		print("""
 			Press 1 : Install Jenkins
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 2 : Remove Jenkins
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			press 3 : Exit the program
+			""",end = '')
+		time.sleep(0.2)
+		print("""
 			Press 4 : Back to Main Menu
-			""")
+			""",end = '')
+		time.sleep(0.2)
 		jenkins_ch=input("Select your choice :- ")
 		if int(jenkins_ch)==1:
 			os.system("figlet Configuring Jenkins . . . ")
@@ -290,6 +373,7 @@ def Jenkins():
 			os.system("figlet Jenkins is Removed.")
 
 		elif int(jenkins_ch)==3:
+			os.system("figlet Thanks for using Jenkins.")
 			exit()
 		elif int(jenkins_ch)==4:
 			break
@@ -301,26 +385,194 @@ def linuxcmd():
 		linuxcmd=input("Enter your Linux Command :- ")
 		os.system("{}".format(linuxcmd))
 		if linuxcmd=='exit':
+			os.system("figlet Thanks for using Linux Command.")
 			break
 
 def yum_conf():
 	while True:
-		os.system("sudo yum install epel-release -y")
+		print("""
+			Kindly attach your RedHat IOS file before continuing.
+			""")
+		user_in=input("If Attached press Y or N for not :- ")
+		if user_in=='Y' or 'y':
+			os.system("mkdir /dvd")
+			os.system("mount /dev/cdrom /dvd/")
+			mount_var='mount /dev/cdrom /dvd/'
+			os.system("echo -e {} >> /etc/rc.d/rc.local".format(mount_var))
+			os.system("chmod +x /etc/rc.d/rc.local")
+			repo_file_name=input("Enter your yum repo file name:- ")
+			os.system("rm -f /etc/yum.repo.d/{}.repo".format(repo_file_name))
+			os.system("touch /etc/yum.repo.d/{}.repo".format(repo_file_name))
+			repo_var1="[dvd1]"
+			repo_var2="baseurl=file:///dvd/AppStream"
+			repo_var3="gpgcheck=0"
+			repo_var4="[dvd2]"
+			repo_var5="baseurl=file:///dvd/BaseOS"
+			repo_var6="gpgcheck=0"
+			os.system("echo -e {} > /etc/yum.repo.d/{}.repo".format(repo_var1,repo_file_name))
+			os.system("echo -e {} >> /etc/yum.repo.d/{}.repo".format(repo_var2,repo_file_name))
+			os.system("echo -e {} >> /etc/yum.repo.d/{}.repo".format(repo_var3,repo_file_name))
+			os.system("echo -e {} >> /etc/yum.repo.d/{}.repo".format(repo_var4,repo_file_name))
+			os.system("echo -e {} >> /etc/yum.repo.d/{}.repo".format(repo_var5,repo_file_name))
+			os.system("echo -e {} >> /etc/yum.repo.d/{}.repo".format(repo_var6,repo_file_name))
+			os.system("yum repolist")
+			os.system("Successfully yum configured.")
+		elif user_in=='N' or 'n':
+			print("Please attach your Redhat IOS file.")
+		else:
+			print("You have entered wrong keyword")
+			break
+
+def docker_conf():
+	while True:
+		print("""
+			Press 1 : Configure & Install Docker
+			""",end = '')
+		time.sleep(0.2)
+		print(""" 
+			Press 2 : Check your Images
+			""",end = '')
+		time.sleep(0.2)
+		print("""
+			Press 3 : Manage your container
+			""",end = '')
+		time.sleep(0.2)
+		print("""
+			Press 4 : Back to Main menu
+			""",end = '')
+		time.sleep(0.2)
+		print("""
+			Press 5 : Exit the Program
+			""")
+		time.sleep(0.2)
+		docker_ch=input("Select your choice :- ")
+		if int(docker_ch)==1:
+			os.system("rm -f /etc/yum.repo.d/docker.repo")
+			os.system("touch /etc/yum.repo.d/docker.repo")
+			docker_repo1="[docker]"
+			docker_repo2="baseurl=https://download.docker.com/linux/centos/7/x86_64/stable/"
+			docker_repo3="gpgcheck=0"
+			os.system("echo -e {} >> /etc/yum.repo.d/docker.repo".format(docker_repo1))
+			os.system("echo -e {} >> /etc/yum.repo.d/docker.repo".format(docker_repo2))
+			os.system("echo -e {} >> /etc/yum.repo.d/docker.repo".format(docker_repo3))
+			os.system("yum repolist")
+			print("Successfully Docker Configured")
+			time.sleep(0.5)
+			print("Now installing Docker . . .")
+			os.system("yum install docker-ce --nobest -y")
+			os.system("systemctl enable docker")
+			os.system("systemctl start docker")
+			print("Successfully Docker Installed")
+		elif int(docker_ch)==2:
+			while True:
+				print("""
+					Press 1 : Show Images
+					Press 2 : Pull Images
+					Press 3 : Remove Images
+					Press 4 : Back to Docker Menu
+					Press 5 : Back to Main Menu
+					Press 6 : Exit from the program
+					""")
+				docker_image_ch=input("Enter your choice : -")
+				if int(docker_image_ch)==1:
+					os.system("docker images")
+				elif int(docker_image_ch)==2:
+					image_name=input("Enter image name : -")
+					image_tag=input("Enter tag : -")
+					os.system("docker pull {}:{}".format(image_name,image_tag))
+					os.system("docker images")
+				elif int(docker_image_ch)==3:
+					image_name_rm=input("Enter image name : -")
+					image_tag_rm=input("Enter tag : -")
+					os.system("docker rmi {}:{}".format(image_name_rm,image_tag_rm))
+					os.system("docker images")
+				elif int(docker_image_ch)==4:
+					break
+				elif int(docker_image_ch)==5:
+					break
+					break
+
+				elif int(docker_image_ch)==6:
+				 	exit()
+				else:
+					print("You have entered wrong keyword")
+		elif int(docker_ch)==3:
+			while True:
+				print("""
+					Press 1 : Check running container
+					Press 2 : Stop existing container
+					Press 3 : Launch new container
+					Press 4 : Back to Docker Menu
+					Press 5 : Back to Main Menu
+					Press 6 : Exit from the program
+					""")
+				docker_container_ch=input("Enter your choice : -")
+				if int(docker_container_ch)==1:
+					os.system("docker ps")
+				elif int(docker_container_ch)==2:
+					container_name_rm=input("Enter container name:- ")
+					os.system("docker stop {}".format(container_name_rm))
+					os.system("docker ps")
+				elif int(docker_container_ch)==3:
+					container_name=input("Enter container name:- ")
+					container_image_name=input("Enter container image name:- ")
+					container_image_tag=input("Enter container image tag:- ")
+					os.system("docker run -itd --name {}  {}:{}".format(container_name,container_image_name,container_image_tag))
+					os.system("docker ps")
+				elif int(docker_container_ch)==4:
+					break
+				elif int(docker_container_ch)==5:
+					break
+					break
+
+				elif int(docker_container_ch)==6:
+				 	exit()
+				else:
+					print("You have entered wrong keyword")
+		elif int(docker_container_ch)==4:
+			break					
+		elif int(docker_container_ch)==5:
+			exit()
+		else:
+			print("You have entered wrong keyword")
 		
 
-
 while True :
+	print("-----------------------------------------------------------------------------")
+	os.system("figlet Welcome to Python AutoBot")
+	print("-----------------------------------------------------------------------------")
 	print(""" 
 		Press 1 : Configure AWS
+		""",end = '')
+	time.sleep(0.2)
+	print(""" 
 		Press 2 : Configure Hadoop-Cluster
+		""",end = '')
+	time.sleep(0.2)
+	print("""
 		Press 3 : Configure YUM
+		""",end = '')
+	time.sleep(0.2)
+	print("""
 		Press 4 : Configure Docker
+		""",end = '')
+	time.sleep(0.2)
+	print("""
 		Press 5 : Configure Jenkins
+		""",end = '')
+	time.sleep(0.2)
+	print("""
 		Press 6 : Configure Ansible
+		""",end = '')
+	time.sleep(0.2)
+	print("""
 		Press 7 : Run Linux Command
+		""",end = '')
+	time.sleep(0.2)
+	print("""
 		Press 8 : Exit the Program
 		""")
-
+	time.sleep(0.2)
 	configure=input("Select your choice :- ")
 	if int(configure)==1:
 		aws()
@@ -328,12 +580,15 @@ while True :
 		Hadoop_Cluster()
 	elif int(configure)==3:
 		yum_conf()
+	elif int(configure)==4:
+		docker_conf()
 	elif int(configure)==5:
 		Jenkins()
 	elif int(configure)==7:
 		linuxcmd()
 	elif int(configure)==8:
+		os.system("figlet Thanks for using Python AutoBot.")
 		exit()
 	else:
-			print("You have entered wrong keyword")
+		print("You have entered wrong keyword")
 			
