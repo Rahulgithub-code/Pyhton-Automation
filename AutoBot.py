@@ -113,7 +113,9 @@ def aws():
 		elif int(aws)== 9:
 			break
 		else:
+			os.print("tput setaf 1")
 			print("You have entered wrong keyword")
+			os.system("tput sgr0")
 
 def Hadoop_Cluster():
 	import os
@@ -150,7 +152,17 @@ def Hadoop_Cluster():
 		if int(hadoop)==1:
 			os.system("rpm -q hadoop")
 		elif int(hadoop)==2:
-			print("Under working.....")
+			print("Downloading required software's . . . \n")
+			os.system("wget -c https://pythonfilerahul.s3.ap-south-1.amazonaws.com/hadoop-1.2.1-1.x86_64.rpm")
+			os.system("")
+			os.system("rpm -ivh hadoop-1.2.1-1.x86_64.rpm")
+			os.system("")
+			os.system("tput setaf 7")
+			os.system("hadoop version")
+			os.system("tput sgr0")
+			print("Successfully Hadoop Installed.")
+
+
 		elif int(hadoop)==3:
 			directoryname=input("Give directory name:- ")
 			os.system("mkdir /{}".format(directoryname))
@@ -186,6 +198,7 @@ def Hadoop_Cluster():
 			os.system("jps")
 			os.system('tput setaf  2')
 			print('Setup Complete')
+			os.system("tput sgr0")
 			print('figlet  DataNode Started')
 		elif int(hadoop)==4:
 			masterDir=input("Give directory name:- ")
@@ -326,7 +339,9 @@ def Hadoop_Cluster():
 		elif int(hadoop)==7:
 			break
 		else:
+			os.print("tput setaf 1")
 			print("You have entered wrong keyword")
+			os.system("tput sgr0")
 
 def Jenkins():
 	while True:
@@ -378,7 +393,9 @@ def Jenkins():
 		elif int(jenkins_ch)==4:
 			break
 		else:
+			os.print("tput setaf 1")
 			print("You have entered wrong keyword")
+			os.system("tput sgr0")
 
 def linuxcmd():
 	while True:
@@ -394,7 +411,7 @@ def yum_conf():
 			Kindly attach your RedHat IOS file before continuing.
 			""")
 		user_in=input("If Attached press Y or N for not :- ")
-		if user_in=='Y' or 'y':
+		if user_in=='Y' or user_in=='y':
 			os.system("mkdir /dvd")
 			os.system("mount /dev/cdrom /dvd/")
 			mount_var='mount /dev/cdrom /dvd/'
@@ -417,11 +434,13 @@ def yum_conf():
 			os.system("echo -e {} >> /etc/yum.repo.d/{}.repo".format(repo_var6,repo_file_name))
 			os.system("yum repolist")
 			os.system("Successfully yum configured.")
-		elif user_in=='N' or 'n':
+		elif user_in=='N' or user_in=='n':
 			print("Please attach your Redhat IOS file.")
 		else:
+			os.print("tput setaf 1")
 			print("You have entered wrong keyword")
-			break
+			os.system("tput sgr0")
+			continue
 
 def docker_conf():
 	while True:
@@ -452,7 +471,7 @@ def docker_conf():
 			docker_repo1="[docker]"
 			docker_repo2="baseurl=https://download.docker.com/linux/centos/7/x86_64/stable/"
 			docker_repo3="gpgcheck=0"
-			os.system("echo -e {} >> /etc/yum.repo.d/docker.repo".format(docker_repo1))
+			os.system("echo -e {} > /etc/yum.repo.d/docker.repo".format(docker_repo1))
 			os.system("echo -e {} >> /etc/yum.repo.d/docker.repo".format(docker_repo2))
 			os.system("echo -e {} >> /etc/yum.repo.d/docker.repo".format(docker_repo3))
 			os.system("yum repolist")
@@ -467,25 +486,47 @@ def docker_conf():
 			while True:
 				print("""
 					Press 1 : Show Images
+					""")
+				time.sleep(0.2)
+				print("""
 					Press 2 : Pull Images
+					""")
+				time.sleep(0.2)
+				print("""
 					Press 3 : Remove Images
+					""")
+				time.sleep(0.2)
+				print("""
 					Press 4 : Back to Docker Menu
+					""")
+				time.sleep(0.2)
+				print("""
 					Press 5 : Back to Main Menu
+					""")
+				time.sleep(0.2)
+				print("""
 					Press 6 : Exit from the program
 					""")
+				time.sleep(0.2)
 				docker_image_ch=input("Enter your choice : -")
 				if int(docker_image_ch)==1:
+					os.system("tput setaf 7")
 					os.system("docker images")
+					os.system("tput sgr0")
 				elif int(docker_image_ch)==2:
 					image_name=input("Enter image name : -")
 					image_tag=input("Enter tag : -")
 					os.system("docker pull {}:{}".format(image_name,image_tag))
+					os.system("tput setaf 7")
 					os.system("docker images")
+					os.system("tput sgr0")
 				elif int(docker_image_ch)==3:
 					image_name_rm=input("Enter image name : -")
 					image_tag_rm=input("Enter tag : -")
 					os.system("docker rmi {}:{}".format(image_name_rm,image_tag_rm))
+					os.system("tput setaf 7")
 					os.system("docker images")
+					os.system("tput sgr0")
 				elif int(docker_image_ch)==4:
 					break
 				elif int(docker_image_ch)==5:
@@ -495,47 +536,135 @@ def docker_conf():
 				elif int(docker_image_ch)==6:
 				 	exit()
 				else:
+					os.print("tput setaf 1")
 					print("You have entered wrong keyword")
+					os.system("tput sgr0")
 		elif int(docker_ch)==3:
 			while True:
 				print("""
-					Press 1 : Check running container
-					Press 2 : Stop existing container
-					Press 3 : Launch new container
-					Press 4 : Back to Docker Menu
-					Press 5 : Back to Main Menu
-					Press 6 : Exit from the program
+					Press 1 : Check status of  container
 					""")
+				time.sleep(0.2)
+				print("""
+					Press 2 : Stop existing container
+					""")
+				time.sleep(0.2)
+				print("""
+					Press 3 : Launch new container
+					""")
+				time.sleep(0.2)
+				print("""
+					Press 4 : Remove container
+					""")
+				time.sleep(0.2)
+				print("""
+					Press 5 : Remove all container
+					""")
+				time.sleep(0.2)
+				print("""
+					Press 6 : Back to Docker Menu
+					""")
+				time.sleep(0.2)
+				print("""
+					Press 7 : Back to Main Menu
+					""")
+				time.sleep(0.2)
+				print("""
+					Press 8 : Exit from the program
+					""")
+				time.sleep(0.2)
 				docker_container_ch=input("Enter your choice : -")
 				if int(docker_container_ch)==1:
-					os.system("docker ps")
+					os.system("tput setaf 7")
+					os.system("docker ps -a")
+					os.system("tput sgr0")
 				elif int(docker_container_ch)==2:
 					container_name_rm=input("Enter container name:- ")
 					os.system("docker stop {}".format(container_name_rm))
-					os.system("docker ps")
+					os.system("tput setaf 7")
+					os.system("docker ps -a")
+					os.system("tput sgr0")
 				elif int(docker_container_ch)==3:
 					container_name=input("Enter container name:- ")
 					container_image_name=input("Enter container image name:- ")
 					container_image_tag=input("Enter container image tag:- ")
 					os.system("docker run -itd --name {}  {}:{}".format(container_name,container_image_name,container_image_tag))
-					os.system("docker ps")
+					os.system("tput setaf 7")
+					os.system("docker ps -a")
+					os.system("tput sgr0")
 				elif int(docker_container_ch)==4:
-					break
+					docker_rm_ch=input("Enter container name : -")
+					os.system("docker rm {}".format(docker_rm_ch))
+					os.system("tput setaf 7")
+					os.system("docker ps -a")
+					os.system("tput sgr0")
 				elif int(docker_container_ch)==5:
+					os.system("docker rm -f `docker ps -a -q`")
+					os.system("tput setaf 7")
+					os.system("docker ps -a")
+					os.system("tput sgr0")
+				elif int(docker_container_ch)==6:
+					break
+				elif int(docker_container_ch)==7:
 					break
 					break
 
-				elif int(docker_container_ch)==6:
+				elif int(docker_container_ch)==8:
+					os.system("figlet Thanks for using Python AutoBot.")
 				 	exit()
 				else:
+					os.print("tput setaf 1")
 					print("You have entered wrong keyword")
+					os.system("tput sgr0")
 		elif int(docker_container_ch)==4:
 			break					
 		elif int(docker_container_ch)==5:
 			exit()
 		else:
+			os.print("tput setaf 1")
 			print("You have entered wrong keyword")
-		
+			os.system("tput sgr0")
+
+def ansible():
+	while True:
+		print("""
+			Press 1 : Configure & Install Ansible
+			""",end = '')
+		time.sleep(0.2)
+		print("""
+			Press 2 : Back to Main menu
+			""",end = '')
+		time.sleep(0.2)
+		print("""
+			Press 3 : Exit the Program
+			""")
+		time.sleep(0.2)
+		ansible_ch=input("Enter your choice : -")
+		if int(ansible_ch)==1:
+			print("Is your YUM configured ? [Y/N] :- ")
+			yum_ch=input("")
+			if yum_ch=='N' or yum_ch=='n':
+				yum_conf()
+			elif yum_ch=='Y' or yum_ch=='y':
+				os.system("yum install python3 -y")
+				os.system("pip3 install ansible")
+				os.system("mkdir /etc/ansible")
+				os.system("touch /etc/ansible/ansible.cfg")
+				os.system("ansible --version")
+				os.system("tput setaf 10")
+				print("Successfully Ansible installed")
+				os.system("tput sgr0")
+			else:
+				print("You have entered wrong keyword")
+		elif int(ansible_ch)==2:
+			break
+		elif int(ansible_ch)==3:
+			os.system("figlet Thanks for using Python AutoBot.")
+			exit()
+		else:
+			os.print("tput setaf 1")
+			print("You have entered wrong keyword")
+			os.system("tput sgr0")
 
 while True :
 	print("-----------------------------------------------------------------------------")
@@ -584,11 +713,15 @@ while True :
 		docker_conf()
 	elif int(configure)==5:
 		Jenkins()
+	elif int(configure)==6:
+		ansible()
 	elif int(configure)==7:
 		linuxcmd()
 	elif int(configure)==8:
 		os.system("figlet Thanks for using Python AutoBot.")
 		exit()
 	else:
+		os.print("tput setaf 1")
 		print("You have entered wrong keyword")
+		os.system("tput sgr0")
 			
